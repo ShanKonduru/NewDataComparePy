@@ -1,6 +1,26 @@
 class HtmlReportGenerator:
     def generate_html_report(self, merged_df, stats, dataset_id):
         """Generates an HTML report based on the comparison results and statistics."""
+        # Define the background colors based on the _Merge column values
+        bg_colors = {
+            "Exists in Source and Target": "000000; background: green;",
+            "Exists in Source Only": "000000; background: red;",
+            "Exists in Target Only": "000000; background: yellow;"
+        }
+
+        # Generate the HTML for the detailed differences table with conditional formatting
+        detailed_diff_html = "<table>\n"
+        detailed_diff_html += "<tr>" + "".join(f"<th>{col}</th>" for col in merged_df.columns) + "</tr>\n"
+        
+        for _, row in merged_df.iterrows():
+            merge_status = row['_merge']
+            print(merge_status)
+            bg_color = bg_colors.get(merge_status, "")
+            print(bg_color)
+            detailed_diff_html += f"<tr style='color: #{bg_color}'>" + "".join(f"<td>{val}</td>" for val in row) + "</tr>\n"
+
+        detailed_diff_html += "</table>"
+
         html = f"""
         <html>
         <head>
@@ -28,7 +48,7 @@ class HtmlReportGenerator:
             </div>
             <div class="section">
                 <h2>Detailed Differences</h2>
-                {merged_df.to_html(index=False)}
+                {detailed_diff_html}
             </div>
         </body>
         </html>
