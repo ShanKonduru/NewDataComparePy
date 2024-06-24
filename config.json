@@ -1,0 +1,68 @@
+{
+    "datasets": [
+        {
+            "ignore" : "No",
+            "id": "Excel-NoChange",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Src/SrcTest.xlsx",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Dest/DestTest-NoChange.xlsx",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "Excel-NewRow",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Src/SrcTest.xlsx",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Dest/DestTest-NewRow.xlsx",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "Excel-DataChange",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Src/SrcTest.xlsx",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Dest/DestTest-DataChange.xlsx",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "CSV-DataChange",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Src/SrcEmpData.csv",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Dest/DestEmpData.csv",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "EXL-CompareLargeDataSet",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Src/SrcLargeDataSet.xlsx",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Dest/DestLargeDataSet.xlsx",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "CrossCompare_CSV_XLSX",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Src/SrcLargeDataSet.csv",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Dest/DestLargeDataSet.xlsx",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df",
+            "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
+        },
+        {
+            "ignore" : "No",
+            "id": "CrossCompare_XLSX_CSV",
+            "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/src/SrcLargeDataSet.xlsx",
+            "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/dest/DestLargeDataSetcsv.csv",
+            "sheet_name": "Sheet1",
+            "src_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df",
+            "dest_query": "SELECT EmpID as ID, EmpName as NAME, EmpAge as AGE, EmpSex as SEX, EmpSalary as SALARY FROM df"
+        }
+
+    ]
+}

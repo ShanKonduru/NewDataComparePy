@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "datacomparepy"
+version = "0.1.0"
+description = "data compare utility"
+authors = ["ShanKonduru <ShanKonduru@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.2"
+SQLAlchemy = "^2.0.31"
+SQLite3-0611 = "^0.0.1"
+SQLite4 = "^0.1.1"
+pyodbc = "^5.1.0"
+cx-Oracle = "^8.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
