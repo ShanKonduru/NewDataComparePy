@@ -37,7 +37,7 @@
             "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
         },
         {
-            "ignore" : "No",
+            "ignore" : "Yes",
             "id": "EXL-CompareLargeDataSet",
             "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Src/SrcLargeDataSet.xlsx",
             "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/Dest/DestLargeDataSet.xlsx",
@@ -46,7 +46,7 @@
             "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
         },
         {
-            "ignore" : "No",
+            "ignore" : "Yes",
             "id": "CrossCompare_CSV_XLSX",
             "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Src/SrcLargeDataSet.csv",
             "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/Dest/DestLargeDataSet.xlsx",
@@ -55,7 +55,7 @@
             "dest_query": "SELECT Emp_ID as ID, Emp_Name as NAME, Emp_Age as AGE, Emp_Sex as SEX, Emp_Salary as SALARY FROM df"
         },
         {
-            "ignore" : "No",
+            "ignore" : "Yes",
             "id": "CrossCompare_XLSX_CSV",
             "source_file_path": "C:/MyProjects/DataComparePy/InputFiles/EXLS/src/SrcLargeDataSet.xlsx",
             "target_file_path": "C:/MyProjects/DataComparePy/InputFiles/CSV/dest/DestLargeDataSetcsv.csv",
