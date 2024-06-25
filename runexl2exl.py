@@ -7,10 +7,11 @@ from CsvDataComparator import CSVDataComparator
 from HTMLReportGenerator import HtmlReportGenerator
 from PerformanceMetrics import PerformanceMetrics
 from CrossDataComparator import CrossDataComparator
+from Consts import StringConstants
 
 if __name__ == "__main__":
     # Load configuration from JSON file
-    config_loader = ConfigLoader('config.json')
+    config_loader = ConfigLoader(StringConstants.JSON_CONFIG_FILE_NAME )
     
     # Get all dataset names (IDs)
     dataset_ids = config_loader.get_all_dataset_names()
@@ -27,27 +28,27 @@ if __name__ == "__main__":
             print(e)
             continue  # Skip to the next dataset
 
-        if config.get('ignore', 'No').lower() == 'yes':
-            print(f"Skipping dataset {config['id']} as it is marked to be ignored.")
+        if config.get(StringConstants.IGNORE, StringConstants.NO).lower() == StringConstants.YES.lower():
+            print(f"Skipping dataset {config[StringConstants.ID]} as it is marked to be ignored.")
             continue
         
-        source_file_path = config["source_file_path"]
-        target_file_path = config["target_file_path"]
-        sheet_name = config["sheet_name"]
-        src_query = config["src_query"]
-        dest_query = config["dest_query"]
+        source_file_path = config[StringConstants.SOURCE_FILE_PATH]
+        target_file_path = config[StringConstants.TARGET_FILE_PATH]
+        sheet_name = config[StringConstants.SHEET_NAME]
+        src_query = config[StringConstants.SRC_QUERY]
+        dest_query = config[StringConstants.DEST_QUERY]
         
-        if source_file_path.endswith('.xlsx') and target_file_path.endswith('.xlsx'):
+        if source_file_path.endswith(StringConstants.XLSX_EXT.lower()) and target_file_path.endswith(StringConstants.XLSX_EXT.lower()):
             data_comparator = ExcelDataComparator(source_file_path, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_excel_with_excel(src_query, dest_query)
-        elif source_file_path.endswith('.csv') and target_file_path.endswith('.csv'):
+        elif source_file_path.endswith(StringConstants.CSV_EXT.lower()) and target_file_path.endswith(StringConstants.CSV_EXT.lower()):
             data_comparator = CSVDataComparator(source_file_path, target_file_path)
             merged_df, stats = data_comparator.compare_csv_with_csv(src_query, dest_query)
-        elif source_file_path.endswith('.csv') and target_file_path.endswith('.xlsx'):
-            data_comparator = CrossDataComparator("CSV", source_file_path, "XLSX", target_file_path, sheet_name)
+        elif source_file_path.endswith(StringConstants.CSV_EXT.lower()) and target_file_path.endswith(StringConstants.XLSX_EXT.lower()):
+            data_comparator = CrossDataComparator(StringConstants.CSV, source_file_path, StringConstants.XLSX, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_csv_with_xlsx(src_query, dest_query)
-        elif source_file_path.endswith('.xlsx') and target_file_path.endswith('.csv'):
-            data_comparator = CrossDataComparator("XLSX", source_file_path, "CSV", target_file_path, sheet_name)
+        elif source_file_path.endswith(StringConstants.XLSX_EXT.lower()) and target_file_path.endswith(StringConstants.CSV_EXT.lower()):
+            data_comparator = CrossDataComparator(StringConstants.XLSX, source_file_path, StringConstants.CSV, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_xlsx_with_csv(src_query, dest_query)
         else:
             print(f"Unsupported file types for dataset {dataset_id}")
@@ -57,7 +58,8 @@ if __name__ == "__main__":
         html_report = data_comparator.generate_html_report(merged_df, stats, dataset_id)
         
         # Save the HTML report to a file
-        report_file_path = f"./output-reports/report_{dataset_id}.html"
+        report_folder = StringConstants.OUTPUT_REPORTS
+        report_file_path = f"./{report_folder}/report_{dataset_id}.html"
         with open(report_file_path, "w") as file:
             file.write(html_report)
         

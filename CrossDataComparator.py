@@ -1,6 +1,7 @@
 import pandas as pd
 from ExcelFile import ExcelFile
 from DataComparator import DataComparator
+from Consts import StringConstants
 
 class CrossDataComparator(DataComparator):
     def __init__(self, source_format, source_file_path, target_format, target_file_path, sheet_name=None):
@@ -9,10 +10,10 @@ class CrossDataComparator(DataComparator):
         self.target_format = target_format
         
         # Load source data based on format
-        if source_format == "CSV":
+        if source_format == StringConstants.CSV:
             self.source_data = pd.read_csv(source_file_path)
             print(f"Loaded source CSV data:\n{self.source_data.head()}")
-        elif source_format == "XLSX":
+        elif source_format == StringConstants.XLSX:
             self.source_data = ExcelFile(source_file_path, sheet_name).data
             if isinstance(self.source_data, pd.DataFrame):
                 print(f"Loaded source Excel data:\n{self.source_data.head()}")
@@ -22,10 +23,10 @@ class CrossDataComparator(DataComparator):
             raise ValueError(f"Unsupported source format: {source_format}")
         
         # Load target data based on format
-        if target_format == "CSV":
+        if target_format == StringConstants.CSV:
             self.target_data = pd.read_csv(target_file_path)
             print(f"Loaded target CSV data:\n{self.target_data.head()}")
-        elif target_format == "XLSX":
+        elif target_format == StringConstants.XLSX:
             self.target_data = ExcelFile(target_file_path, sheet_name).data
             if isinstance(self.target_data, pd.DataFrame):
                 print(f"Loaded target Excel data:\n{self.target_data.head()}")

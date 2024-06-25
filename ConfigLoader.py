@@ -1,4 +1,5 @@
 import json
+from Consts import StringConstants
 
 class ConfigLoader:
     def __init__(self, config_file):
@@ -13,11 +14,11 @@ class ConfigLoader:
 
     def get_all_dataset_names(self):
         """Returns a list of all dataset names (IDs)."""
-        return [dataset['id'] for dataset in self.config['datasets']]
+        return [dataset[StringConstants.ID] for dataset in self.config[StringConstants.DATASETS]]
     
     def get_config_by_id(self, dataset_id):
         """Returns the configuration for a specific dataset identified by dataset_id."""
-        for dataset in self.config['datasets']:
+        for dataset in self.config[StringConstants.DATASETS]:
             if dataset['id'] == dataset_id:
                 return dataset
         raise ValueError(f"Dataset with id '{dataset_id}' not found.")
