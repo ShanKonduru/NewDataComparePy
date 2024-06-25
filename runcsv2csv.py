@@ -1,12 +1,12 @@
 from ConfigLoader import ConfigLoader
-import ExcelDataComparator
-from CsvDataComparator import CSVDataComparator
+import ExcelFileComparator
+from CsvFileComparator import CSVDataComparator
 from Consts import StringConstants
 
 import json
 
 if __name__ == "__main__":
-    config_loader = ConfigLoader(StringConstants.JSON_CONFIG_FILE_NAME)
+    config_loader = ConfigLoader(StringConstants.FILE_CONFIG_NAME)
     datasets = config_loader.get_all_dataset_names()
     
     for dataset in datasets:
@@ -18,7 +18,7 @@ if __name__ == "__main__":
         dest_query = dataset[StringConstants.DEST_QUERY]
         
         if source_file_path.endswith(StringConstants.XLSX_EXT.lower()) and target_file_path.endswith(StringConstants.XLSX_EXT.lower()):
-            comparator = ExcelDataComparator(source_file_path, target_file_path, sheet_name)
+            comparator = ExcelFileComparator(source_file_path, target_file_path, sheet_name)
         elif source_file_path.endswith(StringConstants.CSV_EXT.lower()) and target_file_path.endswith(StringConstants.CSV_EXT.lower()):
             comparator = CSVDataComparator(source_file_path, target_file_path)
         else:

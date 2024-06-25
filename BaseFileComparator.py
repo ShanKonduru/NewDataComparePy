@@ -2,7 +2,7 @@ import pandas as pd
 from pandasql import sqldf
 from HTMLReportGenerator import HtmlReportGenerator
 
-class DataComparator:
+class FileComparator:
     def __init__(self):
         self.html_report_generator = HtmlReportGenerator()
     

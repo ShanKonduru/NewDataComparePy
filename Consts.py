@@ -14,5 +14,6 @@ class StringConstants:
     SRC_QUERY = "src_query"
     DEST_QUERY = "dest_query"
     OUTPUT_REPORTS = 'output-reports'
-    JSON_CONFIG_FILE_NAME = 'config.json'
+    FILE_CONFIG_NAME = 'file-config.json'
     DATASETS = 'datasets'
+    DB_CONFIG_NAME = 'db-config.json'

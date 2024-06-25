@@ -1,7 +1,7 @@
 from ExcelFile import ExcelFile
-from  DataComparator import DataComparator
+from  BaseFileComparator import FileComparator
 
-class ExcelDataComparator(DataComparator):
+class ExcelFileComparator(FileComparator):
     def __init__(self, source_file_path, target_file_path, sheet_name):
         super().__init__()
         self.source_excel = ExcelFile(source_file_path, sheet_name)

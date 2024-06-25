@@ -1,7 +1,7 @@
 import pandas as pd
-from  DataComparator import DataComparator
+from  BaseFileComparator import FileComparator
 
-class CSVDataComparator(DataComparator):
+class CSVFileComparator(FileComparator):
     def __init__(self, source_file_path, target_file_path):
         super().__init__()
         self.source_csv = pd.read_csv(source_file_path)

@@ -1,9 +1,9 @@
 import pandas as pd
 from ExcelFile import ExcelFile
-from DataComparator import DataComparator
+from BaseFileComparator import FileComparator
 from Consts import StringConstants
 
-class CrossDataComparator(DataComparator):
+class CrossFileComparator(FileComparator):
     def __init__(self, source_format, source_file_path, target_format, target_file_path, sheet_name=None):
         super().__init__()
         self.source_format = source_format

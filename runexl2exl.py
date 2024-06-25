@@ -2,16 +2,17 @@ import pandas as pd
 from pandasql import sqldf
 from ExcelFile import ExcelFile
 from ConfigLoader import ConfigLoader
-from ExcelDataComparator import ExcelDataComparator
-from CsvDataComparator import CSVDataComparator
+from ExcelFileComparator import ExcelFileComparator
+from CsvFileComparator import CSVFileComparator
 from HTMLReportGenerator import HtmlReportGenerator
 from PerformanceMetrics import PerformanceMetrics
-from CrossDataComparator import CrossDataComparator
 from Consts import StringConstants
+from CrossFileComparator import CrossFileComparator
+
 
 if __name__ == "__main__":
     # Load configuration from JSON file
-    config_loader = ConfigLoader(StringConstants.JSON_CONFIG_FILE_NAME )
+    config_loader = ConfigLoader(StringConstants.FILE_CONFIG_NAME )
     
     # Get all dataset names (IDs)
     dataset_ids = config_loader.get_all_dataset_names()
@@ -39,16 +40,16 @@ if __name__ == "__main__":
         dest_query = config[StringConstants.DEST_QUERY]
         
         if source_file_path.endswith(StringConstants.XLSX_EXT.lower()) and target_file_path.endswith(StringConstants.XLSX_EXT.lower()):
-            data_comparator = ExcelDataComparator(source_file_path, target_file_path, sheet_name)
+            data_comparator = ExcelFileComparator(source_file_path, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_excel_with_excel(src_query, dest_query)
         elif source_file_path.endswith(StringConstants.CSV_EXT.lower()) and target_file_path.endswith(StringConstants.CSV_EXT.lower()):
-            data_comparator = CSVDataComparator(source_file_path, target_file_path)
+            data_comparator = CSVFileComparator(source_file_path, target_file_path)
             merged_df, stats = data_comparator.compare_csv_with_csv(src_query, dest_query)
         elif source_file_path.endswith(StringConstants.CSV_EXT.lower()) and target_file_path.endswith(StringConstants.XLSX_EXT.lower()):
-            data_comparator = CrossDataComparator(StringConstants.CSV, source_file_path, StringConstants.XLSX, target_file_path, sheet_name)
+            data_comparator = CrossFileComparator(StringConstants.CSV, source_file_path, StringConstants.XLSX, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_csv_with_xlsx(src_query, dest_query)
         elif source_file_path.endswith(StringConstants.XLSX_EXT.lower()) and target_file_path.endswith(StringConstants.CSV_EXT.lower()):
-            data_comparator = CrossDataComparator(StringConstants.XLSX, source_file_path, StringConstants.CSV, target_file_path, sheet_name)
+            data_comparator = CrossFileComparator(StringConstants.XLSX, source_file_path, StringConstants.CSV, target_file_path, sheet_name)
             merged_df, stats = data_comparator.compare_xlsx_with_csv(src_query, dest_query)
         else:
             print(f"Unsupported file types for dataset {dataset_id}")
