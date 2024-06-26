@@ -1,13 +1,17 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 from pandasql import sqldf
-from ExcelFile import ExcelFile
-from ConfigLoader import ConfigLoader
-from ExcelFileComparator import ExcelFileComparator
-from CsvFileComparator import CSVFileComparator
-from HTMLReportGenerator import HtmlReportGenerator
-from PerformanceMetrics import PerformanceMetrics
-from Consts import StringConstants
-from CrossFileComparator import CrossFileComparator
+from libraries.utilities.ExcelFile import ExcelFile
+from libraries.utilities.ConfigLoader import ConfigLoader
+from libraries.ExcelFileComparator import ExcelFileComparator
+from libraries.CsvFileComparator import CSVFileComparator
+from libraries.utilities.HTMLReportGenerator import HtmlReportGenerator
+from libraries.utilities.PerformanceMetrics import PerformanceMetrics
+from libraries.utilities.Consts import StringConstants
+from libraries.CrossFileComparator import CrossFileComparator
 
 
 if __name__ == "__main__":

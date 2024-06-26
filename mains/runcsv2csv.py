@@ -1,7 +1,7 @@
-from ConfigLoader import ConfigLoader
-import ExcelFileComparator
-from CsvFileComparator import CSVDataComparator
-from Consts import StringConstants
+from libraries.utilities.ConfigLoader import ConfigLoader
+import libraries.ExcelFileComparator as ExcelFileComparator
+from libraries.CsvFileComparator import CSVFileComparator
+from libraries.utilities.Consts import StringConstants
 
 import json
 

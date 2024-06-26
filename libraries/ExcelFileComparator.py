@@ -1,5 +1,5 @@
-from ExcelFile import ExcelFile
-from  BaseFileComparator import FileComparator
+from libraries.utilities.ExcelFile import ExcelFile
+from  libraries.BaseFileComparator import FileComparator
 
 class ExcelFileComparator(FileComparator):
     def __init__(self, source_file_path, target_file_path, sheet_name):

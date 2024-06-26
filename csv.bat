@@ -1,2 +1,2 @@
 @echo off 
-poetry run python runcsv2csv.py
+poetry run python ./mains/runcsv2csv.py

@@ -1,6 +1,6 @@
 import pandas as pd
 from pandasql import sqldf
-from HTMLReportGenerator import HtmlReportGenerator
+from libraries.utilities.HTMLReportGenerator import HtmlReportGenerator
 
 class FileComparator:
     def __init__(self):

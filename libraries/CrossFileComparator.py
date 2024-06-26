@@ -1,7 +1,7 @@
 import pandas as pd
-from ExcelFile import ExcelFile
-from BaseFileComparator import FileComparator
-from Consts import StringConstants
+from libraries.utilities.ExcelFile import ExcelFile
+from libraries.BaseFileComparator import FileComparator
+from libraries.utilities.Consts import StringConstants
 
 class CrossFileComparator(FileComparator):
     def __init__(self, source_format, source_file_path, target_format, target_file_path, sheet_name=None):

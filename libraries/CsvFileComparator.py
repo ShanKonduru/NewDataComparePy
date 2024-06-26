@@ -1,5 +1,5 @@
 import pandas as pd
-from  BaseFileComparator import FileComparator
+from  libraries.BaseFileComparator import FileComparator
 
 class CSVFileComparator(FileComparator):
     def __init__(self, source_file_path, target_file_path):
